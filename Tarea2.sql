@@ -48,6 +48,7 @@ dbms_output.put_line('Salario máximo:'||salario_maximo);
 
 END;
 
+--- Ejercicio 4
 
 SET SERVEROUTPUT ON;
 
@@ -71,7 +72,22 @@ BEGIN
   
 END; 
 
+--- Ejercicio 5
 
+DECLARE
+  Sal_Max NUMBER;
+  Sal_Min NUMBER;
+  Diferencia NUMBER;
+BEGIN 
+   SELECT MAX(SALARY), MIN(SALARY)
+   INTO Sal_max, Sal_Min
+   FROM employees;
+   Diferencia:= sal_max - sal_min;
+   
+   dbms_output.put_line ('Salario máximo: '||Sal_Max);
+   dbms_output.put_line ('Salario mínimo: '||sal_min);
+   dbms_output.put_line('Diferencia: '||Diferencia);
+END;
 
 
 
