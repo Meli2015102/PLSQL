@@ -51,25 +51,25 @@ END;
 --- Ejercicio 4
 
 SET SERVEROUTPUT ON;
-
 DECLARE
 
- Departamento DEPARTMENTS.DEPARMENT_ID%TYPE;
- NombreDepto  DEPARTMENTS.DEPARMENT_NAME%TYPE;
- NumEmpleado NUMBER;
- 
+  Departamento DEPARTMENTS.DEPARTMENT_ID%TYPE;
+  NombreDepto  DEPARTMENTS.DEPARTMENT_NAME%TYPE;
+  NumEmpleado NUMBER;
 BEGIN
+  Departamento := 10;
 
-  SELECT DEPARMENT_NAME INTO NombreDepto 
-  FROM departments 
-  WHERE DEPARMENT_ID = Departamento;
+  SELECT DEPARTMENT_NAME INTO NombreDepto 
+  FROM DEPARTMENTS 
+  WHERE DEPARTMENT_ID = Departamento;
   
-  SELECT COUNT(*) INTO NumEmpleado 
+  SELECT COUNT(EMPLOYEE_ID) INTO NumEmpleado 
   FROM EMPLOYEES 
-  WHERE DEPARMENT_ID = Departamento;
+  WHERE DEPARTMENT_ID = Departamento;
   
-  dbms_output.put_line('El departamento'||NombreDepto||'tiene'||NumEmpleado||'empleados');
-  
+  dbms_output.put_line('El departamento: '|| NombreDepto );
+  dbms_output.put_line('Tiene '||  NumEmpleado  || ' empleado');
+ 
 END; 
 
 --- Ejercicio 5
